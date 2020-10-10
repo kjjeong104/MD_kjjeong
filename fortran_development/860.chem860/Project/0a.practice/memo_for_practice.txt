@@ -1,0 +1,6 @@
+First, try NVT & NPT MC of LJ chain molecules system 
+with only stretching harmonic potential
+initial growth of chain molecules : done by using cubic arrangement, not random growth yet
+things have to be imported : output coordinate generation
+ (to check the structure. let monomers as jmol dummy atoms)
+ 

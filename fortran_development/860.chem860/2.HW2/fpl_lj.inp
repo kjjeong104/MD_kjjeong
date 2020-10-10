@@ -1,0 +1,9 @@
+   800     ! total integration time
+    .004   ! trajectory step size 
+   .2       ! sample time intervals 
+  1.0      !force constants for linear chain model
+   3.0     !req
+  30.0     !inverse temperature
+ -5.d0     !lower wall wall at x = -5 and other wall at x = x(npart)+5
+  1350 1420  !seed for random number generator
+   650     ! equilibration time

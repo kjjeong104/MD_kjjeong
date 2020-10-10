@@ -1,0 +1,8 @@
+   3000      ! total integration time
+    .001     ! trajectory step size 
+   2         ! sample time intervals 
+  1.0        !force constants for linear chain model
+   3.0       !req
+  .025       !inverse temperature
+ -1000.d0    !wall at x = -5
+  1350 1420  !seed for random number generator

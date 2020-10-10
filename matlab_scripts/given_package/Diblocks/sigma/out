@@ -1,0 +1,91 @@
+ format  1  0
+
+MONOMERS            
+N_monomer           
+                   2
+kuhn                
+    2.0000000000E+00    1.0000000000E+00
+
+CHAINS              
+N_chain             
+                   1
+N_block             
+                   2
+block_monomer       
+                   1                   2
+block_length        
+    2.5000000000E-01    7.5000000000E-01
+
+COMPOSITION         
+ensemble            
+                   0
+phi_chain           
+    1.0000000000E+00
+
+INTERACTION         
+interaction_type    
+               'chi'
+chi                 
+    2.5000000000E+01
+
+UNIT_CELL           
+dim                 
+                   3
+crystal_system      
+        'tetragonal'
+N_cell_param        
+                   2
+cell_param          
+    9.3601706446E+00    4.9353024597E+00
+
+DISCRETIZATION      
+ngrid               
+                  64                  64                  32
+chain_step          
+    1.0000000000E-02
+
+BASIS               
+group_name          
+        'P 42/m n m'
+
+ITERATE             
+input_filename      
+             'omega'
+output_prefix       
+                  ''
+max_itr             
+                1000
+error_max           
+    1.0000000000E-05
+domain              
+                   T
+itr_algo            
+                'AM'
+N_hist              
+                  20
+
+FINISH              
+
+THERMO              
+f_Helmholtz         
+    3.2179897942E+00
+f_homo              
+    3.6875000000E+00
+pressure            
+    3.3803827860E+00
+mu_chain            
+    6.5983725802E+00
+stress              
+    7.4458733079E-07   -1.2185796130E-06
+
+STATISTICS          
+N_star              
+                8985
+final_error         
+    2.1891367828E-06
+iterations          
+                  42
+basis_time          
+    9.6085730000E+00
+scf_time            
+    2.7129567400E+03

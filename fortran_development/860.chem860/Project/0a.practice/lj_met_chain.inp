@@ -1,0 +1,16 @@
+1	!if iread=1 read in old_configuration	-iread
+0	!set to zero for NPT otherwise NVT	-const_vol
+64	!number of chain molecules		-nmol
+8	!number of 'beads' in one chain		-natom
+1	!bond length				-bl
+400	!bond harmonic force const		-kvib
+10000	!number of points for the simulation	-irun
+0	!number of points in equilibration	-nequil
+400	!number of points between calls to sample	-nsamp
+0.5	!mc config step size			-delx
+0.05	!mc volume step size
+1.9	! the desired temperature		-tstar
+0.1	! the value of the pressure		-pres
+0.6	! the initial density			-density
+2224 9034	!random seed			-seed
+10	!the number of blocks used for density    - nblocks

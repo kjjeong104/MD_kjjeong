@@ -1,0 +1,1 @@
+pgf90 lj_mod.f90 lj.f90  -o lj

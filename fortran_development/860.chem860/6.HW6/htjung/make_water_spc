@@ -1,0 +1,7 @@
+base=water_spc
+compiler=/opt/intel/bin/ifort
+
+water_spc: $(base)_mod.f90 $(base).f90
+	$(compiler) $(base)_mod.f90 $(base).f90 -o $(base)
+
+

@@ -1,0 +1,8 @@
+base=lj_ewald
+compiler=pgf90
+flags=-Mr8 -C
+
+lj_ewald: $(base)_mod.f90 $(base).f90
+	$(compiler) $(flags) $(base)_mod.f90 $(base).f90 -o $(base)
+
+

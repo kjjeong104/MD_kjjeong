@@ -1,0 +1,8 @@
+base=water_spc
+compiler=pgf90
+flags=-Mr8 
+
+water_spc: water_spc_mod.f90 $(base).f90
+	$(compiler) $(flags) water_spc_mod.f90 $(base).f90 -o $(base)
+
+

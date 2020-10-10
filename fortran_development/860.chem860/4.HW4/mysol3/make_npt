@@ -1,0 +1,8 @@
+base=lj_metro_npt
+compiler=pgf90
+flags=-Mr8 -C
+
+lj_metro_npt: lj_metro_npt_mod.f90 $(base).f90
+	$(compiler) $(flags) lj_metro_npt_mod.f90 $(base).f90 -o $(base)
+
+

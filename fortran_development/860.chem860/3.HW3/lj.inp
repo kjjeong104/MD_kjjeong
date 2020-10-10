@@ -1,0 +1,11 @@
+   256     !number of particles in the simulation
+  10        !nblock - number of block runs; if nblock>9 modify gr.f90
+  40.0      !tequil-equilbration time
+  20.0      !ttest-testing time
+  50.0      !trun-simulation run time
+  0.025      !tsample-sampling time
+  0.005     !dt - step size
+   0.851     !tstar
+   0.840     !density
+  50       !nbins  - the number of bins 
+  1245 3248 !seeds

@@ -1,0 +1,41 @@
+ format 1 0
+
+MONOMERS
+N_monomer           
+              2
+
+CHAINS
+N_block             
+              2
+block_length   
+              2.5000000E-01  7.5000000E-01
+
+UNIT_CELL
+dim                 
+              3
+crystal_system      
+              'cubic'
+N_cell_param        
+              1
+cell_param          
+              1.9
+
+DISCRETIZATION
+ngrid
+             36        36        36
+
+BASIS
+group_name          
+            'I m -3 m'
+
+output_filename
+            'rho_kgrid'
+
+PARTICLES
+N_particles
+            2
+Fractional_coordinates
+            0       0       0
+            0.5     0.5     0.5
+
+FINISH

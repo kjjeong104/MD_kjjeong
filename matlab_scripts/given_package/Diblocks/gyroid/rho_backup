@@ -1,0 +1,17 @@
+ format  1  0
+dim                 
+                   3
+crystal_system      
+             'cubic'
+N_cell_param        
+                   1
+cell_param          
+          4.0E+00
+group_name          
+          'I a -3 d'
+N_monomer           
+                   2
+N_star              
+                 2
+  0.000000000000E+00  0.000000000000E+00       0   0   0     1
+  1.000000000000E+00 -1.000000000000E+00       2   1   1    24

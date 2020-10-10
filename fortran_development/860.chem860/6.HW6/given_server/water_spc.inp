@@ -1,0 +1,20 @@
+   0             ! iread  read in old_configuration if iread = 1 otherwise start afresh
+   125           ! number of molecules
+    3            ! number of atoms per molecule
+   0             ! set to zero for NPT simulation otherwise set to 1  - const_vol
+  -.82 .41 .41   ! charges on the atoms
+   8   0.0       0.0    0.0              !atomic number geometry of the molecule
+   1   0.8164904  0.0  -0.5773589  
+   1  -0.8164904  0.0  -0.5773589  
+  629.4d3 625.5d0                        ! 1/12 and 1/6  parameter in kcal A^12 /mol
+    7.5          ! nkappa inverse width of the gaussian distribution relative to box   
+     27          ! kx**2+ky**2+kz**2<= ksqmax              - ksqmax
+  40000          ! Number of points of the simulation      - ncycle 
+  4000           ! sampling frequency                      - nsamp
+  0.3            ! step size of trial config moves         - delx
+  .04            ! step size of trial moves in log vol     - vmax
+  1              ! 1 or 2 used to pick move options        - move-option
+  300.0          ! value of desired T in K                 - tstar 
+   1.00          ! pressure in atm                         - pressure 
+   1.000         ! initial density of liquid in gm/cm^3    - density 
+ 189 9063        ! seeds for random number generator       - seed

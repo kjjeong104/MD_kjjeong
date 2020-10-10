@@ -1,0 +1,6 @@
+1.0	 !beta = kT
+5000000	 !nstep
+0.5	 !delx
+-5	 !xmin
+5	 !xmax
+110 53715	!seed

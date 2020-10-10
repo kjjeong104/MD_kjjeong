@@ -1,0 +1,10 @@
+#PBS -S /bin/bash
+#PBS -l nodes=1:ppn=1
+#PBS -N test_param
+
+cd /home/kjeong/2.Field_simulation/given_package/Diblocks/fcc
+#mpi sourcing
+#. /usr/mpi/intel/mvapich-1.1.0/bin/mpivars.sh
+#/usr/local/bin/mpiexec -np 24 /share/apps/gromacs-4.5.5/bin/mdrun_nd 
+#source /share/apps/gromacs-4.5.5/bin/GMXRC
+/home/kjeong/softwares/bin/pscf < param | tee log.txt

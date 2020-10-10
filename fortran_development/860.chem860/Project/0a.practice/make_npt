@@ -1,0 +1,7 @@
+base=lj_met_chain
+compiler=pgf90
+flags=-Mr8 -C
+
+lj_met_chain: lj_met_chain_mod.f90 $(base).f90
+	$(compiler) $(flags) lj_met_chain_mod.f90 $(base).f90 -o $(base)
+

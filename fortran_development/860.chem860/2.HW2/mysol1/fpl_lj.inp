@@ -1,0 +1,10 @@
+   25000     ! total integration time
+    .004   ! trajectory step size 
+   .2       ! sample time intervals 
+  1.0      !force constants for linear chain model
+   3.0     !req
+  7.5     !inverse temperature
+ -5.d0     !lower wall wall at x = -5 and other wall at x = x(npart)+5
+  1350 1420  !seed for random number generator
+   25000     ! equilibration time
+	5  ! ibinner(1:bin energy in cartesian, 2:NM speed, >2: E_nm ibinner-2

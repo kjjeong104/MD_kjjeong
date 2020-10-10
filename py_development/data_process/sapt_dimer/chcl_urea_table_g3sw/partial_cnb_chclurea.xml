@@ -1,0 +1,14 @@
+  <Atom class="Cl" Aexch="784021.6" Aelec="260226.4" Aind="44244.9" Adhf="115414.4" Bexp="29.340" C6="0.018278935" C8="0.001719449" C10="1.66968e-04" C12="1.28566e-05" Switch="1" Aexadj="253801.8" Aeladj="246776.0" Ainadj="-44244.9" Adhadj="-94470.7"/>
+  <Atom class="NA" Aexch="252625.61" Aelec="102236.97" Aind="0.0" Adhf="17538.34" Bexp="39.061" C6="0.0010187" C8="6.24594e-05" C10="9.21956200000001e-06" C12="6.7692452e-07" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="HA" Aexch="9627.71" Aelec="1310.12" Aind="1071.2" Adhf="1331.13" Bexp="37.794" C6="0.00012945" C8="6.7972e-06" C10="4.996e-07" C12="0" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="CAM" Aexch="304938.7" Aelec="117598.0" Aind="11.7" Adhf="2837.1" Bexp="34.384" C6="0.00091067" C8="0" C10="0" C12="0" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="CAE" Aexch="304938.7" Aelec="117598.0" Aind="11.7" Adhf="2837.1" Bexp="34.384" C6="0.00091067" C8="0" C10="0" C12="0" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="CB" Aexch="304938.7" Aelec="117598.0" Aind="11.7" Adhf="2837.1" Bexp="34.384" C6="0.0013545" C8="5.705e-05" C10="1.80898e-06" C12="5.20977e-08" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="HB" Aexch="15986.7" Aelec="3623.5" Aind="746.7" Adhf="1467.9" Bexp="37.776" C6="0.0001294" C8="6.796e-06" C10="4.9953e-07" C12="0" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="OH" Aexch="398289.0" Aelec="140369.0" Aind="14748.0" Adhf="13141.0" Bexp="37.794" C6="0.001462" C8="8.665e-05" C10="5.5467e-06" C12="2.7977e-07" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="HO" Aexch="818.5" Aelec="0.0" Aind="137.8" Adhf="216.1" Bexp="31.483" C6="4.47e-05" C8="4.912e-07" C10="1.222e-07" C12="0" Switch="0" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="O2A" Aexch="315060.0" Aelec="139939.1" Aind="29536.9" Adhf="26583.2" Bexp="37.795" C6="0.0013191" C8="5.7131e-05" C10="4.58043e-06" C12="2.208856e-07" Switch="1" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="C2A" Aexch="263600.2" Aelec="112896.5" Aind="11.7" Adhf="2837.2" Bexp="34.384" C6="0.0007729" C8="2.3492e-05" C10="2.75392e-06" C12="1.023663e-07" Switch="1" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="NM" Aexch="1199565.0" Aelec="271994.0" Aind="28126.0" Adhf="32899.0" Bexp="39.061" C6="0.0013066" C8="1.0058e-04" C10="8.7522e-06" C12="5.9775e-07" Switch="1" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="HMC" Aexch="1059.8" Aelec="705.7" Aind="70.6" Adhf="207.2" Bexp="31.483" C6="0.0000938" C8="2.607e-06" C10="4.151e-07" C12="0.0" Switch="1" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>
+  <Atom class="HMT" Aexch="1151.6" Aelec="37.4" Aind="67.9" Adhf="147.5" Bexp="31.483" C6="0.0000938" C8="2.607e-06" C10="4.151e-07" C12="0.0" Switch="1" Aexadj="0" Aeladj="0" Ainadj="0" Adhadj="0"/>

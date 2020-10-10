@@ -1,0 +1,1 @@
+pgf90 lj_mod.f90 pressure_mod.f90 lj.f90 gr.f90  -o lj

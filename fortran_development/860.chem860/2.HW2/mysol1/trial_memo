@@ -1,0 +1,11 @@
+(ibinner		1(car)	2(nmspeed)	5(E_nm3))
+totint_time	equil	statistics_1	stat_2	stat_5
+800		650	notbad		bad	bad 
+800		2000	good		notbad	notbad
+2000		650	good		bad	notbad
+2000		2000			fine
+
+
+Finally: after sourcecode index debug,
+tot integral time 5000,
+equilibration time 5000

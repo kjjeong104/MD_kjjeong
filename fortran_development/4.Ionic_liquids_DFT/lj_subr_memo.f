@@ -1,0 +1,265 @@
+       SUBROUTINE C2LAINT(DENP,DENM,DENAVP,DENAVM,DENBARP,DENBARM,
+     C                    C1LA11,C1LA12,C1LA21,C1LA22)
+       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+       PARAMETER(TOL=1.D-5)
+       PARAMETER(PI = 3.141592653589793D0, FPI = 4.0D0*PI)
+       PARAMETER(ALH = 30.0D0, DZ = 0.02D0, NMAX=1+(ALH/DZ))
+       DIMENSION R(NMAX),DENP(NMAX),DENM(NMAX)
+       DIMENSION DENBARP(NMAX),DENBARM(NMAX)
+       DIMENSION C2LA11(NMAX),C2LA12(NMAX),C2LA21(NMAX),C2LA22(NMAX)
+       DIMENSION C1LA11(NMAX),C1LA12(NMAX),C1LA21(NMAX),C1LA22(NMAX)
+C
+       COMMON/DIST/R
+       COMMON/LJ/EPP,EPM,EPS
+       COMMON/DRATIO/DBD2
+       COMMON/DENRATIO/XP,XM
+       COMMON/MBREAK/MESHBREAK
+       EXTERNAL GAMMA
+
+       DO 9300 I=1,MESH
+        C1LA11(I) = 0.0D0
+        C1LA12(I) = 0.0D0
+        C1LA21(I) = 0.0D0
+        C1LA22(I) = 0.0D0
+        DO 9400 J=1,MESH
+         C2LA11(J)=0.0
+         C2LA12(J)=0.0
+         C2LA21(J)=0.0
+         C2LA22(J)=0.0
+         TERM11=0.0D0
+         TERM12=0.0D0
+         TERM22=0.0D0
+C
+         DSR=DABS(R(I)-R(J))
+         DSR2=DSR*DSR
+         DSR3=DSR2*DSR
+         DSR5=DSR3*DSR2
+         DSR12=DSR-AN12
+         DSR122=DSR12*DSR12
+         DSR123=DSR122*DSR12
+         DSR124=DSR123*DSR12
+         DSR125=DSR123*DSR122
+C       
+         IF(DSR.LE.1.0D0) THEN
+          TERM11 = 2.0D0*PI*(P11*(1.0-DSR)
+     C          + AI0*(1.D0-DSR2)/2.D0
+     C          + AI1*(1.D0-DSR3)/3.0D0
+     C          + AI2*(1.D0-DSR5)/5.D0)
+         ENDIF
+C
+         IF(DSR.LE.DBD2)THEN
+          TERM22 = 2.0D0*PI*(P22*(DBD2-DSR)
+     C          + AJ0*(DBD22-DSR2)/2.D0
+     C          + AJ1*(DBD23-DSR3)/3.0D0
+     C          + AJ2*(DBD25-DSR5)/5.D0)
+         ENDIF
+C
+         IF(DSR.LE.AN12)THEN
+          TERM12 = 2.0D0*PI*(P12*(AM12-DSR)
+     C           + AB0*(AN12*AN12-DSR2)/2.D0
+     C           + AL0*(AM12-AN12)
+     C           + AL1*(AM12*AM12-AN12*AN12)/2.D0
+     C           + Al2*(AM12**3-AN12**3)/3.D0
+     C           + AL3*(AM12**5-AN12**5)/5.D0)
+         ENDIF
+C
+         IF(DSR.GT.AN12 .AND. DSR.LE.AM12)THEN
+          TERM12 = 2.0D0*PI*(P12*(AM12-DSR)
+     C           + AL0*(AM12-DSR)
+     C           + AL1*(AM12*AM12-DSR2)/2.0D0
+     C           + AL2*(AM12**3-DSR3)/3.D0
+     C           + AL3*(AM12**5-DSR5)/5.D0)
+
+         ENDIF
+         C2LA11(J)=TERM11*(DENP(J)-DENAVP)
+         C2LA22(J)=TERM22*(DENM(J)-DENAVM)
+         C2LA12(J)=TERM12*(DENM(J)-DENAVM)
+         C2LA21(J)=TERM12*(DENP(J)-DENAVP)
+9400    CONTINUE
+C
+         CALL SIMPBAR(C2LA11,VALP11,1,MESH)
+         CALL SIMPBAR(C2LA12,VALM12,1,MESH)
+         CALL SIMPBAR(C2LA21,VALP21,1,MESH)
+         CALL SIMPBAR(C2LA22,VALM22,1,MESH)
+         C1LA11(I)=VALP11
+         C1LA12(I)=VALM12
+         C1LA21(I)=VALP21
+         C1LA22(I)=VALM22
+         IF(I.GT.MESHBREAK)THEN
+          C1LA11(I) = 0.0D0
+          C1LA12(I) = 0.0D0
+          C1LA21(I) = 0.0D0
+          C1LA22(I) = 0.0D0
+         ENDIF
+9300    CONTINUE
+C
+        RETURN
+
+        END
+C
+       SUBROUTINE C2ELINT(DENP,DENM,DENAVP,DENAVM,DENBARP,DENBARM,
+     C                    C1EL11,C1EL12,C1EL21,C1EL22)
+       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+       PARAMETER(TOL=1.D-5)
+       PARAMETER(PI = 3.141592653589793D0, FPI = 4.0D0*PI)
+       PARAMETER(ALH = 30.0D0, DZ = 0.02D0, NMAX=1+(ALH/DZ))
+       DIMENSION R(NMAX),DENP(NMAX),DENM(NMAX)
+       DIMENSION DENBARP(NMAX),DENBARM(NMAX)
+       DIMENSION C2EL11(NMAX),C2EL12(NMAX),C2EL21(NMAX),C2EL22(NMAX)
+       DIMENSION C1El11(NMAX),C1EL12(NMAX),C1EL21(NMAX),C1EL22(NMAX)
+C
+       COMMON/DIST/R
+       COMMON/CHARGE/QP,QM,SIGMA,ESTAR
+       COMMON/DRATIO/DBD2
+       COMMON/DENRATIO/XP,XM
+       COMMON/MBREAK/MESHBREAK
+       EXTERNAL GAMMA
+C
+       MESH = NMAX
+       X1I = -4.0D0
+       X2I = 4.0D0
+       XCAL= BRENT(GAMMA,X1I,X2I,TOL)
+C       WRITE (6,*) XCAL
+       XG = XCAL
+C
+       AM1 = (DBD2+1.0D0)
+       AN1 = DABS(DBD2-1.0D0)
+       AM12 = (DBD2+1.0D0)/2.0D0
+       AN12 = DABS(DBD2-1.0D0)/2.0D0
+       DBD22 = DBD2**2
+       DBD23 = DBD2**3
+       DBD25 = DBD2**5
+       ETA = (PI/6.0)*(DENAVP+DBD23*DENAVM)
+       ETA1M = 1.D0-ETA
+       CVAL = PI/ETA1M/2.0D0
+       CHID = 1.D0 + CVAL*(DENAVP/(1.D0+XG) 
+     C        + DENAVM*DBD23/(1.D0+XG*DBD2))
+       CHIN = -CVAL*(DENAVP*QP/(1.D0+XG) 
+     C        + DENAVM*QM*DBD2/(1.D0+XG*DBD2))
+       CHI = CHIN/CHID
+       XI1 = (QP + CHI)/(1+XG)
+       XI2 = (QM + CHI*DBD22)/(1+XG*DBD2)
+       DGAMMA = DENAVP*XI1*XI1 + DENAVM*XI2*XI2
+       Y1 = (1.D0+XG)
+       Y2 = (1.D0+XG*DBD2)
+       YVAL = Y1*Y2
+       ADA=ESTAR*ESTAR
+C
+C      COEFFICIENTS********
+       AB0 = 2.D0*ADA*(CHI*CHI*(XG-2.D0)/3.D0/Y1 + CHI*QP*AN1/YVAL
+     C      - QP*QM*XG/Y2)
+       AL0 = (ADA*AN1*AN1/16.D0/YVAL)*
+     C (CHI*CHI*(4.D0*(1.D0+DBD22) - 4.D0*XG*XG*DBD22 - AN1*AN1*YVAL) 
+     C       + 4.D0*(QP+QM)*CHI + 4.D0*QP*QM*XG*XG)  
+       AL1 = (ADA/YVAL)*((QP*AN1-QM*AN1)*CHI - 2.D0*XG*QP*QM 
+     C       - AM1*QP*QM*XG*XG 
+     C       +(Y2*(XG-2.D0)/3.D0+DBD23*Y1*(XG*DBD2-2.D0)/3.D0)*CHI*CHI) 
+       AL2 = (ADA/YVAL)*((QP+QM)*CHI + XG*XG*QP*QM
+     C       + (1.D0+DBD22-XG*XG*DBD22-AN1*AN1*YVAL/2.D0)*CHI*CHI)
+       AL3 = ADA*CHI*CHI/3.D0
+       P12 = ADA*QP*QM
+C
+       AI0 = (ADA/Y1/Y1)*(-2.D0*XG*QP*QP - 2.D0*QP*QP*XG*XG
+     C       +(Y1*(XG-2.D0)*2.D0/3.D0)*CHI*CHI)  
+       AI1 = (ADA/Y1/Y1)*
+     C      ((2.D0-XG*XG)*CHI*CHI + 2.D0*QP*CHI + XG*XG*QP*QP)
+       AI2 = ADA*CHI*CHI/3.D0
+       P11 = ADA*QP*QP
+C
+       AJ0 = (ADA/Y2/Y2)*(-2.D0*XG*QM*QM - 2.D0*DBD2*QM*QM*XG*XG
+     C       +(Y2*(XG*DBD2-2.D0)*DBD23*2.D0/3.D0)*CHI*CHI)  
+       AJ1 = (ADA/Y2/Y2)*
+     C       (2.D0*QM*CHI + XG*XG*QM*QM 
+     C      + (2.D0*DBD22-XG*XG*DBD22*DBD22)*CHI*CHI)
+       AJ2 = ADA*CHI*CHI/3.D0
+       P22 = ADA*QM*QM
+C
+       DO 9100 I=1,MESH
+C        DENXP = DABS(QM)*DENBARP(I)/(DABS(QP)+DABS(QM))
+C        DENXM = DABS(QP)*DENBARP(I)/(DABS(QP)+DABS(QM))
+C        XVAL=DSQRT(FPI*ESTAR*ESTAR*
+C     C            (QP*QP*DENXP+QM*QM*DENXM))
+C        BVAL=(XVAL+1.0D0-DSQRT(1.0D0+2.0D0*XVAL))/XVAL
+C        ADA=ESTAR*ESTAR
+C        AEA=ADA*BVAL
+C        AFA=AEA*BVAL
+        C1EL11(I) = 0.0D0
+        C1EL12(I) = 0.0D0
+        C1EL21(I) = 0.0D0
+        C1EL22(I) = 0.0D0
+        DO 9200 J=1,MESH
+         C2EL11(J)=0.0
+         C2EL12(J)=0.0
+         C2EL21(J)=0.0
+         C2EL22(J)=0.0
+         TERM11=0.0D0
+         TERM12=0.0D0
+         TERM22=0.0D0
+C
+         DSR=DABS(R(I)-R(J))
+         DSR2=DSR*DSR
+         DSR3=DSR2*DSR
+         DSR5=DSR3*DSR2
+         DSR12=DSR-AN12
+         DSR122=DSR12*DSR12
+         DSR123=DSR122*DSR12
+         DSR124=DSR123*DSR12
+         DSR125=DSR123*DSR122
+C       
+         IF(DSR.LE.1.0D0) THEN
+          TERM11 = 2.0D0*PI*(P11*(1.0-DSR)
+     C          + AI0*(1.D0-DSR2)/2.D0
+     C          + AI1*(1.D0-DSR3)/3.0D0
+     C          + AI2*(1.D0-DSR5)/5.D0)
+         ENDIF
+C
+         IF(DSR.LE.DBD2)THEN
+          TERM22 = 2.0D0*PI*(P22*(DBD2-DSR)
+     C          + AJ0*(DBD22-DSR2)/2.D0
+     C          + AJ1*(DBD23-DSR3)/3.0D0
+     C          + AJ2*(DBD25-DSR5)/5.D0)
+         ENDIF
+C
+         IF(DSR.LE.AN12)THEN
+          TERM12 = 2.0D0*PI*(P12*(AM12-DSR)
+     C           + AB0*(AN12*AN12-DSR2)/2.D0
+     C           + AL0*(AM12-AN12)
+     C           + AL1*(AM12*AM12-AN12*AN12)/2.D0
+     C           + Al2*(AM12**3-AN12**3)/3.D0
+     C           + AL3*(AM12**5-AN12**5)/5.D0)
+         ENDIF
+C
+         IF(DSR.GT.AN12 .AND. DSR.LE.AM12)THEN
+          TERM12 = 2.0D0*PI*(P12*(AM12-DSR)
+     C           + AL0*(AM12-DSR)
+     C           + AL1*(AM12*AM12-DSR2)/2.0D0
+     C           + AL2*(AM12**3-DSR3)/3.D0
+     C           + AL3*(AM12**5-DSR5)/5.D0)
+
+         ENDIF
+         C2EL11(J)=TERM11*(DENP(J)-DENAVP)
+         C2EL22(J)=TERM22*(DENM(J)-DENAVM)
+         C2EL12(J)=TERM12*(DENM(J)-DENAVM)
+         C2EL21(J)=TERM12*(DENP(J)-DENAVP)
+9200    CONTINUE
+C
+         CALL SIMPBAR(C2EL11,VALP11,1,MESH)
+         CALL SIMPBAR(C2EL12,VALM12,1,MESH)
+         CALL SIMPBAR(C2EL21,VALP21,1,MESH)
+         CALL SIMPBAR(C2EL22,VALM22,1,MESH)
+         C1EL11(I)=VALP11
+         C1El12(I)=VALM12
+         C1El21(I)=VALP21
+         C1El22(I)=VALM22
+         IF(I.GT.MESHBREAK)THEN
+          C1EL11(I) = 0.0D0
+          C1EL12(I) = 0.0D0
+          C1EL21(I) = 0.0D0
+          C1EL22(I) = 0.0D0
+         ENDIF
+9100    CONTINUE
+C
+        RETURN
+        END
+C
+

@@ -1,0 +1,41 @@
+ amass(i) =     15.999
+ amass(i) =      1.008
+ amass(i) =      1.008
+ the following are in A ps amu units
+ the desired temp is    247.7712
+ the move_option is        1
+ the box length is        18.626
+ number of particles is      648
+ the density is          0.03343
+ the pressure is         0.00610
+ the value of beta  is   0.00404
+ the volume is          6461.560
+ r cutoff is               9.313
+ molar mass is            18.015
+  atoms in center of mass frame 
+   0.00000   0.00000   0.06461
+   0.81649   0.00000  -0.51275
+  -0.81649   0.00000  -0.51275
+ the current box length is    18.4041
+  here are the original charges
+  -0.8199999999999999        0.4100000000000000        0.4100000000000000     
+  here are the scaled charges
+   -305.6499294840028         152.8249647420014         152.8249647420014     
+  ecut =   -0.4005472581441939     
+  the self energy is    -189.1002177635311     
+  the following energies are in kcal/mol
+  the initial lr potential is    -75.97046878391500     
+  the initial sr potential is    -124.1349571296633     
+  the initial lj potential is     1.386221456907244     
+  the intramolecular contr is    -189.1002177635311     
+  the initial tot coulomb  is    -11.00520815004715     
+  the total potential is         -9.650690403408106     
+  istep =         57491
+  ncycle =        500000
+  % accepted coord is        =     11.55316998277806     
+  % accepted volume moves is =     74.69525010508617     
+  the final volume is =     6168.886292312120     
+ the average density is     1.03780562
+ the average energy is    -9.78582582
+ moles/liter =    57.60786097
+ cpu time=    327.9591729640961     

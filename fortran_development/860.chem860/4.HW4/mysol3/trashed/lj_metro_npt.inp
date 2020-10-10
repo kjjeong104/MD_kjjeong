@@ -1,0 +1,11 @@
+  108       ! number of particles                     -  npart
+  50000     ! Number of sampling points of the simulation  - irun
+  120000    ! Number of sampling points of the equilibration  - nequil 
+  1000      !sampling time                            - isample
+ .14        !step size of the trial moves             - delx
+ .10        !step size of log(volume) trial moves     - vmax
+  2.0       !value of tstar                           - tstar is desired temperature
+  0.75       !pressure of the system                   - pres
+  0.4       !initial density of the system            - density
+ 189 9063   !seeds for random number generator        - seed
+   10        !the number of blocks used for density    - nblocks

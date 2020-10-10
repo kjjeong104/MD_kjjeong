@@ -1,0 +1,8 @@
+base=lj_metro_flexPtest
+compiler=pgf90
+flags=-Mr8 -C
+
+lj_metro_flexnpt: lj_metro_npt_mod.f90 $(base).f90
+	$(compiler) $(flags) lj_metro_npt_mod.f90 $(base).f90 -o $(base)
+
+

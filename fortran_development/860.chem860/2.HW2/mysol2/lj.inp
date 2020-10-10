@@ -1,0 +1,10 @@
+   108     !number of particles in the simulation
+  20.0      !tequil-equilbration time
+  10.0      !ttest-testing time
+  1.0     !trun-simulation run time
+   0.1     !tsample-sampling time
+  .02     !dt - step size
+ 0.5       !beta
+ 25.0387 25.0387 25.0387    !box dimension in x,y,z
+  50       !nbins  - the number of binds 
+  1245 3248 !seeds

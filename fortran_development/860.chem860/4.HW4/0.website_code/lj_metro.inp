@@ -1,0 +1,8 @@
+  100000    ! Number of sampling points of the simulation  - irun
+  200000    ! Number of sampling points of the equilibration  - nequil 
+  1000     !sampling time                           - isample
+ .2        !step size of the trial moves            - delx
+  0.9      !.71   !value of tstar                    - tstar is desired temperature
+  .4       !density of the liquid           - density
+ 189 9063 !seeds for random number generator       - seed
+

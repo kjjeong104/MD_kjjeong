@@ -1,0 +1,8 @@
+base=correlate
+compiler=pgf90
+flags=-Mr8 
+
+correlate: $(base)_mod.f90 correlate_mod.f90 $(base).f90
+	$(compiler) $(flags) fourier_mod.f90 $(base)_mod.f90 $(base).f90 -o $(base)
+
+

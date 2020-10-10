@@ -1,0 +1,12 @@
+  20      !run time of the simulation             - trun
+  20      !equilibration time of the simulation   - tequil
+  20      !sampling time to test equilibration    - time_test
+  1       !sampling time                          - tsample
+ .008      !step size of the simulation            - dt
+  .71     !value of tstar                         - tstar is desired temperature
+ .844     !density of the liquid                  - density
+  7.274    !nkappa where kappa = nkappa/length box length -nkappa
+ 9	! kmax
+ 85	! ksqmax
+ 139 9863 !seeds for random number generator      - seed
+

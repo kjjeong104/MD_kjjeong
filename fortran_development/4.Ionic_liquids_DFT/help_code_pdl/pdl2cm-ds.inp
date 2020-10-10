@@ -1,0 +1,8 @@
+ 1.D0           1.D0               DENSITY IN M
+ 1.D0	        -1.D0	 0.352	:QP,QM,Q3
+ 2.D-08 	   		DVAL
+ 3.25D0				DBD2
+ 298.0D0       78.5D0                   TEMP,DIEL
+ 5.D-3        1.D-2          cmix  devtol          
+ 0
+ 0.0D0  
