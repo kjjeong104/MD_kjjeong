@@ -1,0 +1,28 @@
+Dear gmx users,
+
+I made Spatial distribution function of water around my enzyme, and I got a
+grid.cube file, when I visualize my output file with VMD I see that water
+distribution has tendency to one side of enzyme, it means when I change
+isovalue in VMD the water molecules increase or decrease from one side of
+enzyme but at last they cover whole the enzyme, here is two question:
+1. are my commands and choices true?
+
+echo 12 q | gmx_mpi make_ndx -f md_0_1.gro -o indexp.ndx (12=water)
+
+echo 0 0 | gmx_mpi trjconv -s md_0_1.tpr -f md_0_1.xtc -o md_0_1_S.xtc
+-boxcenter tric -ur compact -pbc none (0=system)
+
+echo 4 0 | gmx_mpi trjconv -s md_0_1.tpr -f md_0_1_S.xtc -o protein_fit.xtc
+-fit rot+trans (4=backbone of protein , 0=system)
+
+echo 12 1 | gmx_mpi spatial -s md_0_1.tpr -f protein_fit.xtc -n indexp.ndx
+-nab 300 -bin 0.1 (12=water, 1=protein)
+
+2. how can I remove nonbonded water aroun the protein?
+
+I greatly appreciate your kind consideration and very much look forward to
+hearing from you at your earliest convenience.
+
+Best regards,
+
+Hoda
